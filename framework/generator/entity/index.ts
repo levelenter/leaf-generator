@@ -5,14 +5,14 @@ import path from "path";
 import { EntityMeta } from "./EntityMeta";
 import { rebuildFolder, deleteFolderRecursive } from "../cleanFolder";
 import { loadMetadataMain } from "./loadMetadataMain";
-import { insertCharsetStatement } from "./insertCharsetStatement";
+// import { insertCharsetStatement } from "./insertCharsetStatement";
 import { config }  from "../config/config"
 
 // A5SQLファイル
 let a5erFile = config.a5erFile;
 
 // createSQLfile
-let createSqlFile = config.createSqlFile;
+// let createSqlFile = config.createSqlFile;
 
 let generateDirServer = "./dist/dto";
 let generateDaoServer = "./dist/dao";
@@ -57,10 +57,10 @@ function main() {
   console.log("- DBエンティティ＆DAO生成開始");
   console.log("-------------------------");
 
-  console.log("-------------------------");
-  console.log("- エンコード文字列チェック＋更新");
-  console.log("-------------------------");
-  insertCharsetStatement(createSqlFile);
+  // console.log("-------------------------");
+  // console.log("- エンコード文字列チェック＋更新");
+  // console.log("-------------------------");
+  // insertCharsetStatement(createSqlFile);
 
   console.log("-------------------------");
   console.log("- ロード開始");

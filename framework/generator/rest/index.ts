@@ -50,6 +50,10 @@ copyFileSync(`${libPath}Session.ts`,`${distPath}Session.ts`);
 copyFileSync(`${libPath}ErrorHandler.ts`,`${distPath}ErrorHandler.ts`);
 copyFileSync(`${libPath}momentExtends.ts`,`${distPath}momentExtends.ts`);
 copyFileSync(`${libPath}utils.ts`,`${distPath}utils.ts`);
+copyFileSync(`${libPath}Response.ts`,`${distPath}Response.ts`)
+copyFileSync(`${libPath}MaybeError.ts`,`${distPath}MaybeError.ts`);
+
+
 
 // generate
 copyFileSync(`${libPath}web_handler.ts`,`${generatedDir}web_handler.ts`);
