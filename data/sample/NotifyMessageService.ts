@@ -1,9 +1,9 @@
 import { PoolConnection } from 'mysql2/promise';
-import { Rest } from '../lib/@Rest';
-import { Transactional } from '../lib/@Transactional';
-import { NotifyMessage } from '../../dist/dto/NotifyMessage';
-import { Response } from '../lib/Response';
-import { NotifyMessageDaoGen } from '../../dist/dao/NotifyMessageDaoGen';
+import { Rest } from '../../framework/lib/@Rest';
+import { Transactional } from '../../framework/lib/@Transactional';
+import { NotifyMessage } from "../../dist/dto/NotifyMessage"
+import { Response } from '../../framework/lib/Response';
+const NotifyMessageDaoGen = require('../../dist/dao/NotifyMessageDaoGen').NotifyMessageDaoGen;
 export class NotifyMessageService {
   connection!: PoolConnection;
 

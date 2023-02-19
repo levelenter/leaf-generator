@@ -1,7 +1,7 @@
 import { MetaParam } from './MetaParam';
 import { Primitive, findClassDef } from './common';
 
-import { getGenericTypeArgType, isGenericType, trimQuate } from './util';
+import { getGenericTypeArgType, isGenericType, trimQuate } from './restUtil';
 
 const frameWorkBizDir = "../";
 

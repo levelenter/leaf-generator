@@ -1,8 +1,8 @@
 import express from 'express';
-import { errorHandler } from '../biz/web_handler';
-import { tokenHandler } from '../biz/tokenHandler';
-import { AuthService } from '../../src/sample/AuthService';
-import { NotifyMessageService } from '../../src/sample/NotifyMessageService';
+import { errorHandler } from './web_handler';
+import { tokenHandler } from './tokenHandler';
+import { AuthService } from '../AuthService';
+import { NotifyMessageService } from '../NotifyMessageService';
 
 
 export const generatedRest = express.Router();

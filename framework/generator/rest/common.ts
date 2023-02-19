@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { config }  from "../config/config"
-import { createIfNotExist } from './util';
+import { createIfNotExist } from './restUtil';
 
 const DTO_DIR_FILES_PATH = config.rest_scan_dir;
 const GEN_ENTITY_DIR_FILES_PATH = config.output_dir + "/dto";

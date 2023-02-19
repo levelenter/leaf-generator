@@ -1,7 +1,7 @@
 import { PoolConnection } from 'mysql2/promise';
-import { Transactional } from '../lib/@Transactional';
-import { Rest } from '../lib/@Rest';
-import { Response } from '../lib/Response';
+import { Transactional } from '../../framework/lib/@Transactional';
+import { Rest } from '../../framework/lib/@Rest';
+import { Response } from '../../framework/lib/Response';
 import crypto from 'crypto';
 
 import { Users } from '../../dist/dto/Users';

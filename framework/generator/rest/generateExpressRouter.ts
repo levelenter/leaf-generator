@@ -80,17 +80,17 @@ export function generateRestAPI(classes: MetaClass[], filePath: string) {
   // 引数の型のインポート文字列
   const paramImportArray = getParamTypeImport(classes);
 
-  // サービスクラスのインポート文字列
+  // // サービスクラスのインポート文字列
   const classImportArray = classes.map((c) => c.getServiceImportForExpressRouter());
 
-  // インポート文字列をマージして整理
+  // // インポート文字列をマージして整理
   const importArrayString = mergeImportArrayString(classImportArray, paramImportArray);
 
   // インポート部分
   let src = '';
   src += `import express from 'express';\n`;
-  src += `import { errorHandler } from '../biz/web_handler';\n`;
-  src += `import { tokenHandler } from '../biz/tokenHandler';\n`;
+  src += `import { errorHandler } from './web_handler';\n`;
+  src += `import { tokenHandler } from './tokenHandler';\n`;
   src += `${importArrayString}\n\n\n`;
   src += `export const generatedRest = express.Router();\n\n`;
 
@@ -101,5 +101,6 @@ export function generateRestAPI(classes: MetaClass[], filePath: string) {
   if(fs.existsSync(filePath)){
     fs.unlinkSync(filePath);
   }
+  console.log(filePath)
   fs.writeFileSync(filePath, src);
 }

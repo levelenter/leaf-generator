@@ -7,7 +7,7 @@ import { MetaMethod } from './MetaMethod';
 import { MetaParam } from './MetaParam';
 import { config }  from "../config/config"
 
-import { createIfNotExist } from './util';
+import { createIfNotExist } from './restUtil';
 
 const IF_PATH = config.rest_scan_dir;
 

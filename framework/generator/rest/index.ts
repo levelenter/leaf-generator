@@ -8,11 +8,12 @@ import {
 import { checkDecorater } from "./checkDecorater";
 import { config }  from "../config/config"
 import { copyFileSync } from "fs-extra";
-import { createIfNotExist } from './util';
+import { createIfNotExist } from './restUtil';
 
 const clientPath = config.output_dir + "/biz/remote";
-const expressRouteGeneratePath = config.output_dir + "/web/generatedRest.ts";
-const ignoreTokenFilePath = config.output_dir + "/web/ignoreTokenUriList.ts";
+const generatedDir = config.rest_scan_dir + "/generated/"
+const expressRouteGeneratePath = generatedDir + "generatedRest.ts"; // Service classと同じ場所に出力
+const ignoreTokenFilePath = generatedDir + "ignoreTokenUriList.ts";
 
 console.log("-------------------------");
 console.log("- ロード開始             ");
@@ -31,6 +32,7 @@ console.log("- サーバーサイド生成     ");
 console.log("-------------------------");
 // サーバーサイド生成
 createIfNotExist("./dist/web")
+createIfNotExist(generatedDir);
 generateRestAPI(classes, expressRouteGeneratePath);
 ignoreTokenFileCreate(classes, ignoreTokenFilePath);
 console.log("サーバーサイド生成 done");
@@ -38,20 +40,24 @@ console.log("サーバーサイド生成 done");
 console.log("-------------------------");
 console.log("- フレームワークコードコピー");
 console.log("-------------------------");
-copyFileSync("./src/lib/Response.ts","./dist/biz/Response.ts")
-copyFileSync("./src/lib/ErrorResult.ts","./dist/biz/ErrorResult.ts")
+const libPath = "./framework/lib/"
+const distPath = "./dist/biz/";
 
-copyFileSync("./src/lib/MaybeError.ts","./dist/biz/MaybeError.ts")
-copyFileSync("./src/lib/MessageDialog.ts","./dist/biz/MessageDialog.ts")
-copyFileSync("./src/lib/ErrorType.ts","./dist/biz/ErrorType.ts")
+copyFileSync(`${libPath}MessageDialog.ts`,`${distPath}MessageDialog.ts`);
+copyFileSync(`${libPath}GeneratedBizBase.ts`,`${distPath}GeneratedBizBase.ts`);
+copyFileSync(`${libPath}ErrorType.ts`,`${distPath}ErrorType.ts`);
+copyFileSync(`${libPath}Session.ts`,`${distPath}Session.ts`);
+copyFileSync(`${libPath}ErrorHandler.ts`,`${distPath}ErrorHandler.ts`);
+copyFileSync(`${libPath}momentExtends.ts`,`${distPath}momentExtends.ts`);
+copyFileSync(`${libPath}utils.ts`,`${distPath}utils.ts`);
 
-copyFileSync("./src/lib/GeneratedBizBase.ts","./dist/biz/GeneratedBizBase.ts")
-copyFileSync("./src/lib/web_handler.ts","./dist/biz/web_handler.ts")
-copyFileSync("./src/lib/tokenHandler.ts","./dist/biz/tokenHandler.ts")
-
-copyFileSync("./src/lib/ErrorType.ts","./dist/biz/ErrorType.ts")
-copyFileSync("./src/lib/Session.ts","./dist/biz/Session.ts")
-copyFileSync("./src/lib/ErrorHandler.ts","./dist/biz/ErrorHandler.ts")
+// generate
+copyFileSync(`${libPath}web_handler.ts`,`${generatedDir}web_handler.ts`);
+copyFileSync(`${libPath}tokenHandler.ts`,`${generatedDir}tokenHandler.ts`);
+copyFileSync(`${libPath}Response.ts`,`${generatedDir}Response.ts`)
+copyFileSync(`${libPath}ErrorResult.ts`,`${generatedDir}ErrorResult.ts`);
+copyFileSync(`${libPath}ErrorType.ts`,`${generatedDir}ErrorType.ts`);
+copyFileSync(`${libPath}MaybeError.ts`,`${generatedDir}MaybeError.ts`);
 
 
 console.log("-------------------------");

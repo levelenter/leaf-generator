@@ -85,7 +85,8 @@ export class MetaClass {
    */
   public getServiceImportForExpressRouter(): string {
     if (!this.hasRestMetod) return '';
-    return `import { ${this.name} } from '${SERVICE_DIR_FROM_ROUTER}/${this.name}';`;
+    // return `import { ${this.name} } from '${SERVICE_DIR_FROM_ROUTER}/${this.name}';`;
+    return `import { ${this.name} } from '../${this.name}';`;
   }
 
   /**

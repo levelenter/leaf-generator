@@ -84,8 +84,8 @@ function main() {
   console.log("-------------------------");
   console.log("- FRAMEWORKファイルコピー");
   console.log("-------------------------");
-  copyFile("./src/dao/BaseDao.ts", generateDaoServer+ "/BaseDao.ts")
-  copyFile("./src/dao/DBAccessor.ts",generateDaoServer +"/DBAccessor.ts")
+  copyFile("./framework/dao/BaseDao.ts", generateDaoServer+ "/BaseDao.ts")
+  copyFile("./framework/dao/DBAccessor.ts",generateDaoServer +"/DBAccessor.ts")
 
   console.log("Generate Done!!!");
 }
