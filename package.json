@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "all" : "npm run entity && npm run rest",
     "entity": "ts-node --project ./tsconfig.json ./framework/generator/entity/index.ts",
     "rest": "ts-node --project ./tsconfig.json ./framework/generator/rest/index.ts",
     "kill": "ts-node --project ./tsconfig.json  ./framework/command/kill.ts"
