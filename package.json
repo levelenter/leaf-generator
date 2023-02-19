@@ -8,6 +8,9 @@
     "rest": "ts-node --project ./tsconfig.sv.json ./src/generater/rest/index.ts",
     "kill": "ts-node --project ./tsconfig.sv.json  ./src/command/kill.ts"
   },
+  "bin":{
+    "entity":"./src/generater/entity/index.ts"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
